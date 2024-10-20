@@ -1,0 +1,144 @@
+/* General Styles */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.calendar-navigation {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.calendar-navigation button {
+  padding: 10px 20px;
+  background-color: #007BFF;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.calendar-navigation button:hover {
+  background-color: #0056b3;
+}
+
+#calendar {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+#calendar th, #calendar td {
+  width: 14.28%;
+  padding: 10px;
+  text-align: center;
+  border: 1px solid #ccc;
+  vertical-align: top;
+}
+
+#calendar .selected {
+  background-color: #007BFF;
+  color: #fff;
+  border-radius: 50%;
+}
+
+/* Flex Container for Date and Button */
+.calendar-cell-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Date Number */
+.date-number {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+/* See Details Button */
+.see-details {
+  padding: 5px 10px;
+  font-size: 12px;
+  background-color: #FFA500;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.see-details:hover {
+  background-color: #e69500;
+}
+
+/* Highlighted Date */
+.highlighted {
+  background-color: #fff8dc; /* Light yellow */
+  position: relative;
+}
+
+
+/* Modal Styles */
+.modal {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 10px; /* Further reduced padding */
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  z-index: 10;
+  width: 100%;
+  max-width: 320px; /* Narrower modal */
+  max-height: 70vh; /* Reduced modal height */
+  overflow-y: auto; /* Scroll if content overflows */
+}
+
+.modal h2 {
+  font-size: 1.2rem; /* Smaller title font */
+  margin-bottom: 8px; /* Less space below the title */
+}
+
+.modal .form-group {
+  margin-bottom: 8px; /* Reduced spacing between form fields */
+}
+
+.modal .form-control {
+  padding: 5px 8px; /* Further reduced padding in input and textarea */
+  font-size: 13px; /* Smaller font for inputs */
+}
+
+.modal .form-control#eventDescription {
+  height: auto;
+  min-height: 40px; /* Smaller minimum height for textarea */
+  max-height: 80px; /* Further reduced maximum height for textarea */
+}
+
+.modal .btn {
+  padding: 6px 8px; /* More compact button */
+  font-size: 13px; /* Smaller button text */
+  border-radius: 4px; /* Slightly smaller border radius */
+}
+
+.modal button#closeDetails {
+  padding: 6px 8px; /* Compact close button */
+  font-size: 13px; /* Smaller font for close button */
+  margin-top: 10px; /* Reduced margin above the close button */
+}
