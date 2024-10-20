@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.4/xlsx.full.min.js"></script>
+
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+    }
+
+    .main-content {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 80vh;
+    }
+
+    .feature-buttons {
+      text-align: center;
+    }
+
+    .feature-buttons button {
+      width: 200px;
+      margin: 10px;
+    }
+  </style>
+  <title>Event Calendar</title>
+</head>
+<body>
+
+
+  <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #d3f4ff;">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="home.html">ResumeReady</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarContent">
+        <ul class="navbar-nav ml-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" href="calendar.html">Calendar</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="notes.html">Notes</a>
+          </li>
+        </ul>
+        <button class="btn btn-outline-danger ml-3" id="signoutBtn">Sign Out</button>
+      </div>
+    </div>
+  </nav>
+  
+    
+  <div class="container">
+    <h1>Event Calendar</h1>
+
+    <div class="calendar-navigation">
+      <button id="prevMonth">Previous</button>
+      <span id="monthYearDisplay"></span>
+      <button id="nextMonth">Next</button>
+    </div>
+    
+    <table id="calendar">
+      <thead id="thead-month"></thead>
+      <tbody id="calendar-body"></tbody>
+    </table>
+  </div>
+
+  <div class="container">
+    <button id="exportEventBtn" class="btn btn-primary" >Export Events to Excel</button>
+  </div>
+  
+  <!-- Add Event Modal -->
+  <div id="eventModal" class="modal">
+    <h2>Add Event</h2>
+    <form id="eventForm">
+      <div class="form-group">
+        <label for="eventTitle">Event Title</label>
+        <input type="text" class="form-control" id="eventTitle" placeholder="Enter event title" required>
+      </div>
+      <div class="form-group">
+        <label for="eventDescription">Event Description</label>
+        <textarea class="form-control" id="eventDescription" rows="2" placeholder="Enter event description" required></textarea>
+      </div>
+      <input type="hidden" id="eventDate" required readonly>
+      <button type="submit" class="btn btn-primary btn-block">Add Event</button>
+    </form>
+  </div>
+
+
+  
+  <!-- Event Details Modal -->
+  <div id="detailsModal" class="modal">
+    <h2>Event Details</h2>
+    <ul id="eventList"></ul>
+    <button id="closeDetails">Close</button>
+  </div>
+  <script>
+    document.getElementById('signoutBtn').addEventListener('click', function() {
+      window.location.href = 'login.html';
+    });
+  </script>
+
+  <script src="cal_script.js"></script>
+</body>
+</html>
